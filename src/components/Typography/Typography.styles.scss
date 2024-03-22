@@ -1,0 +1,39 @@
+.typography {
+  &--fontFamily-lato {
+    font-family: "Lato", sans-serif;
+  }
+
+  &--fontFamily-space {
+    font-family: "Space Grotesk", sans-serif;
+  }
+  &--size-xs {
+    font-size: 12px;
+  }
+  &--size-s {
+    font-size: 14px;
+  }
+  &--size-m {
+    font-size: 16px;
+  }
+  &--size-l {
+    font-size: 18px;
+  }
+  &--size-xl {
+    font-size: 32px;
+  }
+  &--size-xxl {
+    font-size: 40px;
+  }
+  &--weight-normal {
+    font-weight: 400;
+  }
+  &--weight-semi-bold {
+    font-weight: 600;
+  }
+  &--weight-bold {
+    font-weight: 700;
+  }
+  &--weight-black {
+    font-weight: 900;
+  }
+}
