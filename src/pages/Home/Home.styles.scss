@@ -1,0 +1,38 @@
+.Home__container {
+  display: grid;
+  padding: 28px 120px;
+  grid-template-areas:
+    "image title"
+    "image main";
+  gap: 28px;
+  &-image {
+    grid-area: image;
+    img {
+      border-radius: 24px;
+    }
+  }
+
+  &-title {
+    grid-area: title;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  &-main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .Home__container {
+    grid-template-areas:
+      "title image"
+      "main main";
+  }
+}

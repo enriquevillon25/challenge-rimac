@@ -1,0 +1,8 @@
+@use "../../variables.scss" as *;
+
+.primary-checkbox {
+  accent-color: $primary-black-color;
+  &:checked {
+    background: $primary-black-color;
+  }
+}

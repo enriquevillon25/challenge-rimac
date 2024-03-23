@@ -1,3 +1,5 @@
+@use "../../variables" as *;
+
 .typography {
   &--fontFamily-lato {
     font-family: "Lato", sans-serif;
@@ -18,6 +20,9 @@
   &--size-l {
     font-size: 18px;
   }
+  &--size-lg {
+    font-size: 20px;
+  }
   &--size-xl {
     font-size: 32px;
   }
@@ -35,5 +40,41 @@
   }
   &--weight-black {
     font-weight: 900;
+  }
+  &--letterSpacing-1 {
+    letter-spacing: 0.1px;
+  }
+  &--letterSpacing-2 {
+    letter-spacing: 0.2px;
+  }
+  &--letterSpacing-4 {
+    letter-spacing: 0.4px;
+  }
+  &--lineHeight-16 {
+    line-height: 16px;
+  }
+  &--lineHeight-20 {
+    line-height: 20px;
+  }
+  &--lineHeight-24 {
+    line-height: 24px;
+  }
+  &--lineHeight-40 {
+    line-height: 40px;
+  }
+  &--color-white {
+    color: $white;
+  }
+  &--color-primary-black {
+    color: $primary-black-color;
+  }
+  &--align-start {
+    text-align: start;
+  }
+  &--align-end {
+    text-align: end;
+  }
+  &--align-center {
+    text-align: center;
   }
 }

@@ -1,0 +1,13 @@
+@use "../../mixins.scss" as *;
+@use "../../variables.scss" as *;
+
+.footer__container {
+  @include flex-between;
+  padding: 32px 120px;
+  background: $primary-black-color;
+  &-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+}
