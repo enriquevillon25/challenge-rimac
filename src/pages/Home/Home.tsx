@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Home.styles.scss";
 import { Typography } from "../../components/Typography/Typography";
 import { ChipBase } from "../../components/ChipBase/ChipBase";
-import { SelectInput } from "../../components/SelectInput/SelectInput";
 import { InputBase } from "../../components/InputBase/InputBase";
 import { ButtonBase } from "../../components/ButtonBase/ButtonBase";
 import ImageHome from "../../assets/home-image.svg";
