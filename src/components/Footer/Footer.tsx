@@ -10,7 +10,7 @@ export const Footer = () => {
         <Typography
           fontFamily="space"
           weight="semi-bold"
-          size="s"
+         size={12}
           lineHeight={16}
           letterSpacing={2}
           color="white"

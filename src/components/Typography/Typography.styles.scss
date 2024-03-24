@@ -8,25 +8,28 @@
   &--fontFamily-space {
     font-family: "Space Grotesk", sans-serif;
   }
-  &--size-xs {
+  &--size-12 {
     font-size: 12px;
   }
-  &--size-s {
+  &--size-14 {
     font-size: 14px;
   }
-  &--size-m {
+  &--size-16 {
     font-size: 16px;
   }
-  &--size-l {
+  &--size-18 {
     font-size: 18px;
   }
-  &--size-lg {
+  &--size-20 {
     font-size: 20px;
   }
-  &--size-xl {
+  &--size-24 {
+    font-size: 24px;
+  }
+  &--size-32 {
     font-size: 32px;
   }
-  &--size-xxl {
+  &--size-40 {
     font-size: 40px;
   }
   &--weight-normal {
@@ -50,6 +53,18 @@
   &--letterSpacing-4 {
     letter-spacing: 0.4px;
   }
+  &--letterSpacing--1 {
+    letter-spacing: -0.1px;
+  }
+  &--letterSpacing--2 {
+    letter-spacing: -0.2px;
+  }
+  &--letterSpacing--4 {
+    letter-spacing: -0.4px;
+  }
+  &--letterSpacing--6 {
+    letter-spacing: -0.6px;
+  }
   &--lineHeight-16 {
     line-height: 16px;
   }
@@ -59,14 +74,23 @@
   &--lineHeight-24 {
     line-height: 24px;
   }
+  &--lineHeight-24 {
+    line-height: 28px;
+  }
   &--lineHeight-40 {
     line-height: 40px;
+  }
+  &--lineHeight-48 {
+    line-height: 48px;
   }
   &--color-white {
     color: $white;
   }
   &--color-primary-black {
     color: $primary-black-color;
+  }
+  &--color-primary-blue-dark {
+    color: $primary-blue-dark;
   }
   &--align-start {
     text-align: start;

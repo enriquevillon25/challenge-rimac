@@ -1,15 +1,18 @@
 @use "../../variables" as *;
 @use "../../mixins.scss" as *;
 
-.button-base {
-  padding: 20px 40px 20px 40px;
-  border-radius: 40px;
-  &--color-primary {
+.button {
+  cursor: pointer;
+  &--type-primary {
     border: 1px solid $primary-color;
+    border-radius: 32px;
+    padding: 14px 32px;
     background: $primary-color;
   }
-  &--color-primary-black {
+  &--type-secondary {
     border: 1px solid $primary-black-color;
     background: $primary-black-color;
+    border-radius: 40px;
+    padding: 20px 40px;
   }
 }

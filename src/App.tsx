@@ -1,16 +1,21 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.scss";
 import { Home } from "./pages/Home/Home";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { QuotationPage } from "./pages/QuotationPage/QuotationPage";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Home />
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route Component={Home} path="/" />
+          <Route Component={QuotationPage} path="/cotizacion" />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }

@@ -3,10 +3,11 @@ import "./Home.styles.scss";
 import { Typography } from "../../components/Typography/Typography";
 import { ChipBase } from "../../components/ChipBase/ChipBase";
 import { InputBase } from "../../components/InputBase/InputBase";
-import { ButtonBase } from "../../components/ButtonBase/ButtonBase";
+import { ButtonBase } from "../../components/Button/Button";
 import ImageHome from "../../assets/home-image.svg";
 import { PrimaryCheckbox } from "../../components/PrimaryCheckbox/PrimaryCheckbox";
 import { PrimarySelect } from "../../components/PrimarySelect/PrimarySelect";
+import { useQuotation } from "../../hooks/useQuotation";
 
 export const Home = () => {
   const [numDoc, setNumDoc] = useState<number>();
@@ -15,6 +16,8 @@ export const Home = () => {
     { id: 1, value: "dni", name: "DNI" },
     { id: 2, value: "ce", name: "CE" },
   ];
+
+  const { routeQuotation } = useQuotation();
 
   return (
     <div className="Home__container">
@@ -25,7 +28,7 @@ export const Home = () => {
         <ChipBase>
           <Typography
             fontFamily="space"
-            size="m"
+            size={14}
             lineHeight={16}
             letterSpacing={4}
             weight="bold"
@@ -34,14 +37,14 @@ export const Home = () => {
             Seguro Salud Flexible
           </Typography>
         </ChipBase>
-        <Typography fontFamily="space" size="xxl" weight="bold" lineHeight={40}>
+        <Typography fontFamily="space" size={18} weight="bold" lineHeight={40}>
           Creado para ti y tu familia
         </Typography>
       </div>
       <div className="Home__container-main">
         <Typography
           fontFamily="space"
-          size="m"
+          size={14}
           weight="semi-bold"
           letterSpacing={2}
           lineHeight={20}
@@ -71,7 +74,7 @@ export const Home = () => {
           <Typography
             fontFamily="space"
             weight="normal"
-            size="s"
+            size={12}
             lineHeight={20}
             letterSpacing={1}
           >
@@ -83,7 +86,7 @@ export const Home = () => {
           <Typography
             fontFamily="space"
             weight="normal"
-            size="s"
+            size={12}
             lineHeight={20}
             letterSpacing={1}
           >
@@ -93,18 +96,18 @@ export const Home = () => {
         <Typography
           fontFamily="space"
           weight="semi-bold"
-          size="s"
+          size={12}
           lineHeight={20}
           letterSpacing={1}
         >
           Aplican Términos y Condiciones.
         </Typography>
 
-        <ButtonBase color="primary-black">
+        <ButtonBase type="secondary" onClick={routeQuotation}>
           <Typography
             color="white"
             weight="bold"
-            size="lg"
+            size={18}
             lineHeight={24}
             letterSpacing={4}
           >

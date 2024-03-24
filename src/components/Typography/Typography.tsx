@@ -2,11 +2,11 @@ import "./Typography.styles.scss";
 // 12 14 16 18 32 40
 
 type familyFont = "lato" | "space";
-type size = "xs" | "s" | "m" | "l" | "lg" | "xl" | "xxl";
+type size = 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 40;
 type weight = "normal" | "semi-bold" | "bold" | "black";
-type letterSpacing = 1 | 2 | 4 | 6;
-type lineHeight = 16 | 20 | 24 | 40;
-type color = "white" | "primary-black";
+type letterSpacing = -6 | -4 | -2 | -1 | 1 | 2 | 4 | 6;
+type lineHeight = 16 | 20 | 24 | 28 | 32 | 40 | 48;
+type color = "white" | "primary-black" | "primary-blue-dark";
 type align = "start" | "end" | "center";
 
 interface Typography {
@@ -23,7 +23,7 @@ interface Typography {
 export const Typography = ({
   children,
   fontFamily = "lato",
-  size = "m",
+  size = 14,
   weight = "normal",
   letterSpacing = 1,
   lineHeight = 20,

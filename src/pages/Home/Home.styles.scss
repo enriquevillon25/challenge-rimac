@@ -4,7 +4,7 @@
   grid-template-areas:
     "image title"
     "image main";
-  gap: 28px;
+  gap: 0 40px;
   &-image {
     grid-area: image;
     img {
@@ -25,7 +25,7 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    align-items: flex-start;
+    // align-items: flex-start;
   }
 }
 

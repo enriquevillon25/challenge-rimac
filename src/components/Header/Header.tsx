@@ -11,7 +11,7 @@ export const Header = () => {
         <Typography
           fontFamily="space"
           weight="semi-bold"
-          size="s"
+         size={12}
           lineHeight={16}
           letterSpacing={2}
           color="primary-black"
@@ -23,7 +23,7 @@ export const Header = () => {
           <Typography
             fontFamily="space"
             weight="bold"
-            size="l"
+            size={16}
             lineHeight={20}
             letterSpacing={4}
             color="primary-black"
