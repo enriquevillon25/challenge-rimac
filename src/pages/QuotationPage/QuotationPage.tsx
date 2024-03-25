@@ -10,6 +10,7 @@ import "./QuotationPage.styles.scss";
 import { BaseCard } from "../../components/BaseCard/BaseCard";
 import LeftArrowCircle from "../../assets/icons/arrow-left-circle.svg";
 import { IconButton } from "../../components/IconButton/IconButton";
+import { useMobile } from "../../hooks/useMobile";
 
 export const QuotationPage = () => {
   const steppers: StepInterface[] = [
@@ -45,10 +46,10 @@ export const QuotationPage = () => {
   const [activeStep, setActiveStep] = useState(1);
   const [currentPlan, setCurrentPlan] = useState<PlanInterface>();
   const [activeCoverage, setActiveCoverage] = useState<any>({});
+  const { isMobile } = useMobile();
 
   useEffect(() => {
     getAllPlans();
-    console.log("user", user);
   }, []);
 
   return (
@@ -57,6 +58,7 @@ export const QuotationPage = () => {
         activeStep={activeStep}
         steppers={steppers}
         onClick={() => setActiveStep(activeStep - 1)}
+        isMobile={isMobile}
       >
         <div className="quotation-page__plansCove">
           <div className="quotation-page__plansCove-title">

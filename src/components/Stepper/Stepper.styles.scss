@@ -62,4 +62,31 @@
     flex-direction: column;
     gap: 18px;
   }
+  .stepper-mobile {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding: 12px 24px;
+    &__info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .progress-bar {
+      display: flex;
+      align-items: center;
+      &__container {
+        width: 100%;
+        background-color: #d7dbf5;
+        border-radius: 20px;
+      }
+
+      &__fill {
+        height: 8px;
+        background-color: #4f4fff;
+        text-align: center;
+        border-radius: 10px;
+        transition: width 0.5s ease;
+      }
+    }
+  }
 }

@@ -6,7 +6,12 @@ type size = 10 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 40;
 type weight = "normal" | "semi-bold" | "bold" | "black";
 type letterSpacing = -6 | -4 | -2 | -1 | 1 | 2 | 4 | 6 | 8;
 type lineHeight = 16 | 20 | 24 | 28 | 32 | 40 | 48;
-type color = "white" | "primary-black" | "primary-dark-blue" | "violet";
+type color =
+  | "white"
+  | "primary-black"
+  | "primary-dark-blue"
+  | "violet"
+  | "violet-secondary";
 type align = "start" | "end" | "center";
 
 interface Typography {

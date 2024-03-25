@@ -56,6 +56,12 @@
   &--letterSpacing-4 {
     letter-spacing: 0.4px;
   }
+  &--letterSpacing-6 {
+    letter-spacing: 0.6px;
+  }
+  &--letterSpacing-8 {
+    letter-spacing: 0.8px;
+  }
   &--letterSpacing--1 {
     letter-spacing: -0.1px;
   }
@@ -97,6 +103,9 @@
   }
   &--color-violet {
     color: $violet;
+  }
+  &--color-violet-secondary {
+    color: $violet-secondary;
   }
   &--align-start {
     text-align: start;
