@@ -1,4 +1,4 @@
-export interface Plan {
+export interface PlanInterface {
   name: string;
   price: number;
   description: string;

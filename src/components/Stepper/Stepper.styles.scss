@@ -1,9 +1,11 @@
-@use "../../mixins.scss" as *;
-@use "../../variables.scss" as *;
+@use "../../mixins" as *;
+@use "../../variables" as *;
 
 .stepper {
   @include flex-center;
   gap: 12px;
+  background: #edeffc;
+  padding: 16px 0px;
   &__step {
     @include flex-center;
     gap: 10px;
@@ -16,30 +18,48 @@
       font-size: 12px;
       line-height: 16px;
       letter-spacing: 0.4px;
+      span {
+        color: #7981b2;
+      }
     }
     &-title {
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 24px;
-      letter-spacing: 0.2px;
+      span {
+        color: #7981b2;
+      }
     }
-
     &--active {
-      color: #141938;
       .stepper__step-circle {
         background: #4f4fff;
         color: #fff;
+        border: 1px solid #4f4fff;
         font-weight: 700;
         font-size: 12px;
         letter-spacing: 0.4px;
+        span {
+          color: $white;
+        }
       }
       .stepper__step-title {
-        color: #141938;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 24px;
-        letter-spacing: 0.2px;
+        span {
+          color: $primary-dark-blue;
+        }
       }
     }
+  }
+}
+
+.stepper__container {
+  display: flex;
+  padding: 2% 18%;
+  flex-direction: column;
+  gap: 18px;
+}
+
+@media (max-width: 768px) {
+  .stepper__container {
+    display: flex;
+    padding: 18px 24px;
+    flex-direction: column;
+    gap: 18px;
   }
 }

@@ -5,12 +5,18 @@ interface InputBase<T> {
   value: T;
   placeHolder: string;
   onChange: (e: any) => void;
+  type: string;
 }
 
-export const InputBase = ({ value, placeHolder, onChange }: InputBase<any>) => {
+export const InputBase = ({
+  value,
+  placeHolder,
+  onChange,
+  type,
+}: InputBase<any>) => {
   return (
     <input
-      className="input-base"
+      className={`input-base input-base--${type}`}
       value={value}
       placeholder={placeHolder}
       onChange={onChange}

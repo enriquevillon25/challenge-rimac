@@ -1,30 +1,49 @@
-import React, { useState } from "react";
+import { useEffect } from "react";
 import "./Home.styles.scss";
 import { Typography } from "../../components/Typography/Typography";
 import { ChipBase } from "../../components/ChipBase/ChipBase";
 import { InputBase } from "../../components/InputBase/InputBase";
 import { ButtonBase } from "../../components/Button/Button";
 import ImageHome from "../../assets/home-image.svg";
-import { PrimaryCheckbox } from "../../components/PrimaryCheckbox/PrimaryCheckbox";
 import { PrimarySelect } from "../../components/PrimarySelect/PrimarySelect";
-import { useQuotation } from "../../hooks/useQuotation";
+import { useUser } from "../../hooks/useUser";
+import { useNavigate } from "react-router-dom";
+import { useForm } from "../../hooks/useForm";
 
 export const Home = () => {
-  const [numDoc, setNumDoc] = useState<number>();
-  const [phone, setPhone] = useState<number>();
   const optionTypeDoc = [
-    { id: 1, value: "dni", name: "DNI" },
-    { id: 2, value: "ce", name: "CE" },
+    { id: 1, value: "DNI", name: "DNI" },
+    { id: 2, value: "CE", name: "CE" },
   ];
+  const navigate = useNavigate();
 
-  const { routeQuotation } = useQuotation();
+  const { user, setUser, getUser } = useUser();
+
+  const {
+    comunicationPolicit,
+    handleComunicationPolitic,
+    handlePrivatePolitic,
+    handleTypeDoc,
+    privatePolitic,
+    phone,
+    numDoc,
+    setNumDoc,
+    setPhone,
+    validationForm,
+    typeDoc,
+    formToUser,
+  } = useForm();
+
+  useEffect(() => {
+    getUser();
+  }, []);
 
   return (
-    <div className="Home__container">
-      <div className="Home__container-image">
-        <img src={ImageHome} />
+    <div className="home">
+      <div className="home__image">
+        <img src={ImageHome} alt="home" />
       </div>
-      <div className="Home__container-title">
+      <div className="home__title">
         <ChipBase>
           <Typography
             fontFamily="space"
@@ -37,11 +56,11 @@ export const Home = () => {
             Seguro Salud Flexible
           </Typography>
         </ChipBase>
-        <Typography fontFamily="space" size={18} weight="bold" lineHeight={40}>
+        <Typography fontFamily="space" size={32} weight="bold" lineHeight={40}>
           Creado para ti y tu familia
         </Typography>
       </div>
-      <div className="Home__container-main">
+      <div className="home__main">
         <Typography
           fontFamily="space"
           size={14}
@@ -52,68 +71,101 @@ export const Home = () => {
           Tú eliges cuánto pagar. Ingresa tus datos, cotiza y recibe nuestra
           asesoría. 100% online.
         </Typography>
-        <div style={{ display: "grid", gridTemplateColumns: "30% 70%" }}>
-          <PrimarySelect options={optionTypeDoc} />
+        <form action="" className="home__main-form">
+          <div
+            style={{ display: "grid", gridTemplateColumns: "40% 60%" }}
+            className="form__select"
+          >
+            <PrimarySelect
+              options={optionTypeDoc}
+              value={typeDoc}
+              onChange={handleTypeDoc}
+            />
+            <InputBase
+              value={numDoc !== 0 ? numDoc : ""}
+              onChange={(e: any) => {
+                setNumDoc(e.target.value);
+              }}
+              type="right"
+              placeHolder="Nro. de documento"
+            />
+          </div>
           <InputBase
-            value={numDoc}
+            value={phone !== 0 ? phone : ""}
             onChange={(e: any) => {
-              setNumDoc(e.target.value);
+              setPhone(e.target.value);
             }}
-            placeHolder="Nro. de documento"
+            type="full"
+            placeHolder="Celular"
           />
-        </div>
-        <InputBase
-          value={phone}
-          onChange={(e: any) => {
-            setPhone(e.target.value);
-          }}
-          placeHolder="Celular"
-        />
-        <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-          <PrimaryCheckbox />
-          <Typography
-            fontFamily="space"
-            weight="normal"
-            size={12}
-            lineHeight={20}
-            letterSpacing={1}
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+              <input
+                type="checkbox"
+                checked={privatePolitic}
+                onChange={handlePrivatePolitic}
+                className="checkbox"
+              />
+              <Typography
+                fontFamily="space"
+                weight="normal"
+                size={12}
+                lineHeight={20}
+                letterSpacing={1}
+              >
+                Acepto la Política de Privacidad
+              </Typography>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+              <input
+                type="checkbox"
+                checked={comunicationPolicit}
+                onChange={handleComunicationPolitic}
+                className="checkbox"
+              />
+              <Typography
+                fontFamily="space"
+                weight="normal"
+                size={12}
+                lineHeight={20}
+                letterSpacing={1}
+              >
+                Acepto la Política Comunicaciones Comerciales
+              </Typography>
+            </div>
+            <Typography
+              fontFamily="space"
+              weight="semi-bold"
+              size={12}
+              lineHeight={20}
+              letterSpacing={1}
+              underlined={true}
+            >
+              Aplican Términos y Condiciones.
+            </Typography>
+          </div>
+        </form>
+        <div>
+          <ButtonBase
+            type="secondary"
+            onClick={() => {
+              setUser(formToUser(user));
+              navigate("/cotizacion");
+            }}
+            disabled={validationForm}
           >
-            Acepto la Política de Privacidad
-          </Typography>
+            <Typography
+              color="white"
+              weight="bold"
+              size={20}
+              lineHeight={24}
+              letterSpacing={4}
+              fontFamily="space"
+            >
+              Cotiza aquí
+            </Typography>
+          </ButtonBase>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-          <PrimaryCheckbox />
-          <Typography
-            fontFamily="space"
-            weight="normal"
-            size={12}
-            lineHeight={20}
-            letterSpacing={1}
-          >
-            Acepto la Política Comunicaciones Comerciales
-          </Typography>
-        </div>
-        <Typography
-          fontFamily="space"
-          weight="semi-bold"
-          size={12}
-          lineHeight={20}
-          letterSpacing={1}
-        >
-          Aplican Términos y Condiciones.
-        </Typography>
-
-        <ButtonBase type="secondary" onClick={routeQuotation}>
-          <Typography
-            color="white"
-            weight="bold"
-            size={18}
-            lineHeight={24}
-            letterSpacing={4}
-          >
-            Cotiza aquí
-          </Typography>
-        </ButtonBase>
       </div>
     </div>
   );

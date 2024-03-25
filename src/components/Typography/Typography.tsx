@@ -2,15 +2,15 @@ import "./Typography.styles.scss";
 // 12 14 16 18 32 40
 
 type familyFont = "lato" | "space";
-type size = 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 40;
+type size = 10 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 40;
 type weight = "normal" | "semi-bold" | "bold" | "black";
-type letterSpacing = -6 | -4 | -2 | -1 | 1 | 2 | 4 | 6;
+type letterSpacing = -6 | -4 | -2 | -1 | 1 | 2 | 4 | 6 | 8;
 type lineHeight = 16 | 20 | 24 | 28 | 32 | 40 | 48;
-type color = "white" | "primary-black" | "primary-blue-dark";
+type color = "white" | "primary-black" | "primary-dark-blue" | "violet";
 type align = "start" | "end" | "center";
 
 interface Typography {
-  children: string;
+  children: string | JSX.Element;
   fontFamily?: familyFont;
   size?: size;
   weight?: weight;
@@ -18,6 +18,7 @@ interface Typography {
   lineHeight?: lineHeight;
   color?: color;
   align?: align;
+  underlined?: boolean;
 }
 
 export const Typography = ({
@@ -29,6 +30,7 @@ export const Typography = ({
   lineHeight = 20,
   color = "primary-black",
   align = "start",
+  underlined = false,
 }: Typography) => {
   return (
     <span
@@ -39,7 +41,9 @@ export const Typography = ({
                   typography--letterSpacing-${letterSpacing} 
                   typography--lineHeight-${lineHeight}
                   typography--color-${color}
-                  typography--align-${align}`}
+                  typography--align-${align}
+                  typography--underlined-${underlined}
+                  `}
     >
       {children}
     </span>

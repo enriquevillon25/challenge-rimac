@@ -3,6 +3,7 @@
 
 .button {
   cursor: pointer;
+  width: 100%;
   &--type-primary {
     border: 1px solid $primary-color;
     border-radius: 32px;

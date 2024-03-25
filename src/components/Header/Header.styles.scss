@@ -1,15 +1,32 @@
 @use "../../mixins.scss" as *;
 
-.header__container {
+.header {
   @include flex-between;
   padding: 12px 120px;
-  &-info {
+  background: transparent;
+  &__info {
     display: flex;
     align-items: center;
     gap: 14px;
+    &-title {
+      display: flex;
+      align-items: center;
+    }
+    &-contact{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
   }
-  &-contact {
-    display: flex;
-    align-items: center;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 12px 24px;
+    &__info {
+      &-title {
+        display: none;
+      }
+    }
   }
 }

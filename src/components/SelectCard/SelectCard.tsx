@@ -1,37 +1,52 @@
 import React from "react";
 import { PrimaryCheckbox } from "../PrimaryCheckbox/PrimaryCheckbox";
-import { BaseCard } from "../BaseCard/BaseCard";
 import imgpro from "../../assets/protection-me.svg";
 import "./SelectCard.styles.scss";
 import { Typography } from "../Typography/Typography";
 
-export const SelectCard = ({ image = imgpro }: any) => {
+interface SelectCard {
+  image?: string;
+  checked: boolean;
+  onChange: () => void;
+  title: string;
+  description: string;
+}
+
+export const SelectCard = ({
+  image = imgpro,
+  description,
+  title,
+  checked,
+  onChange,
+}: SelectCard) => {
   return (
     <div className="select-card">
       <div className="select-card__header">
-        <PrimaryCheckbox />
+        <PrimaryCheckbox title="" onChange={onChange} checked={checked} />
       </div>
       <div className="select-card__body">
-        <img src={image} />
+        <div className="select-card__body-title">
+          <img src={image} />
+          <Typography
+            color="primary-dark-blue"
+            fontFamily="lato"
+            weight="black"
+            size={18}
+            lineHeight={28}
+            letterSpacing={-2}
+          >
+            {title}
+          </Typography>
+        </div>
         <Typography
-          color="primary-blue-dark"
-          fontFamily="lato"
-          weight="black"
-          size={18}
-          lineHeight={28}
-          letterSpacing={-2}
-        >
-          Para mi
-        </Typography>
-        <Typography
-          color="primary-blue-dark"
+          color="primary-dark-blue"
           fontFamily="lato"
           weight="normal"
-         size={12}
+          size={12}
           lineHeight={20}
           letterSpacing={2}
         >
-          Cotiza tu seguro de salud y agrega familiares si así lo deseas.
+          {description}
         </Typography>
       </div>
     </div>
