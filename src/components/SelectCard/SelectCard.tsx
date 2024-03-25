@@ -4,7 +4,7 @@ import imgpro from "../../assets/protection-me.svg";
 import "./SelectCard.styles.scss";
 import { Typography } from "../Typography/Typography";
 
-interface SelectCard {
+interface SelectCardInterface {
   image?: string;
   checked: boolean;
   onChange: () => void;
@@ -18,7 +18,7 @@ export const SelectCard = ({
   title,
   checked,
   onChange,
-}: SelectCard) => {
+}: SelectCardInterface) => {
   return (
     <div className="select-card">
       <div className="select-card__header">
@@ -26,7 +26,7 @@ export const SelectCard = ({
       </div>
       <div className="select-card__body">
         <div className="select-card__body-title">
-          <img src={image} />
+          <img src={image} alt="select" />
           <Typography
             color="primary-dark-blue"
             fontFamily="lato"

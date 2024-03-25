@@ -3,7 +3,7 @@ import "./Button.styles.scss";
 
 type type = "primary" | "secondary";
 
-interface ButtonBase {
+interface ButtonBaseInterface {
   children: JSX.Element;
   type: type;
   onClick: () => void;
@@ -14,7 +14,7 @@ export const ButtonBase = ({
   type,
   onClick,
   disabled,
-}: ButtonBase) => {
+}: ButtonBaseInterface) => {
   return (
     <button
       onClick={onClick}

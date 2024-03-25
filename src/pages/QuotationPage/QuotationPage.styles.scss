@@ -19,9 +19,11 @@
       grid-template-columns: 1fr 1fr 1fr;
       gap: 24px;
     }
-
-    &__summary {
-    }
+  }
+  &__summary {
+    gap: 28px;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -39,6 +41,8 @@
         grid-template-columns: 1fr;
         padding: 0px 24px;
       }
+    }
+    &__summary {
     }
   }
 }

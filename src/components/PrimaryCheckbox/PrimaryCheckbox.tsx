@@ -1,7 +1,7 @@
 import React from "react";
 import "./PrimaryCheckbox.styles.scss";
 
-interface PrimaryCheckbox {
+interface PrimaryCheckboxInterface {
   title: string | JSX.Element;
   onChange: () => any;
   checked: boolean;
@@ -11,7 +11,7 @@ export const PrimaryCheckbox = ({
   title,
   onChange,
   checked,
-}: PrimaryCheckbox) => {
+}: PrimaryCheckboxInterface) => {
   return (
     <label className="container">
       {title}

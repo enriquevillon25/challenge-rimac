@@ -71,16 +71,16 @@
       align-items: center;
       gap: 8px;
     }
-    .progress-bar {
+    &__progress-bar {
       display: flex;
       align-items: center;
-      &__container {
+      &-container {
         width: 100%;
         background-color: #d7dbf5;
         border-radius: 20px;
       }
 
-      &__fill {
+      &-fill {
         height: 8px;
         background-color: #4f4fff;
         text-align: center;

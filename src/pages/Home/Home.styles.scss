@@ -36,6 +36,20 @@
       .checkbox {
         accent-color: black;
       }
+      &-select {
+        display: grid;
+        grid-template-columns: 40% 60%;
+      }
+      &-politics {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        &-check {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+      }
     }
   }
 }
@@ -47,14 +61,22 @@
       "title image"
       "main main";
     padding: 12px 24px;
+    gap: 16px 0;
     img {
-      width: 50%;
+      width: 100%;
     }
     &__title {
       width: auto;
+      gap: 12px;
+      justify-content: center;
     }
     &__main {
       width: auto;
+      border-top: 1px solid #ccd1ee;
+      padding: 16px 0;
+      &-form {
+        margin-bottom: 2%;
+      }
     }
   }
 }

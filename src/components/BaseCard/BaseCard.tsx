@@ -1,9 +1,8 @@
 import React from "react";
 import "./BaseCard.styles.scss";
 import { Typography } from "../Typography/Typography";
-import { UserInterface } from "../../interfaces/User";
 import FamilyIcon from "../../assets/icons/family-icon.svg";
-interface CardBase {
+interface BaseCardInterface {
   // children: JSX.Element;
   name: string;
   lastName: string;
@@ -23,7 +22,7 @@ export const BaseCard = ({
   phone,
   namePlan,
   pricePlan,
-}: CardBase) => {
+}: BaseCardInterface) => {
   return (
     <div className="base-card">
       <div className="base-card__header">
@@ -36,8 +35,8 @@ export const BaseCard = ({
         >
           PRECIOS CALCULADOS PARA:
         </Typography>
-        <div style={{ display: "flex", gap: "8px" }}>
-          <img src={FamilyIcon} />
+        <div className="base-card__header-title">
+          <img src={FamilyIcon} alt={"family"} />
           <Typography
             weight="bold"
             size={20}
@@ -49,7 +48,7 @@ export const BaseCard = ({
           </Typography>
         </div>
       </div>
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div className="flex-col-start">
         <Typography
           weight="bold"
           size={20}
@@ -78,7 +77,7 @@ export const BaseCard = ({
           {`Celular: ${phone}`}
         </Typography>
       </div>
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div className="flex-col-start">
         <Typography
           weight="bold"
           size={20}

@@ -1,16 +1,15 @@
-import { useContext } from "react";
+import { useContext, useCallback } from "react";
 import { UserService } from "../services/UserService";
 import { UserContext } from "../context/UserContext";
 
 export const useUser = () => {
   const { user, setUser } = useContext(UserContext);
 
-  const userService = new UserService();
-
-  const getUser = async () => {
+  const getUser = useCallback(async () => {
+    const userService = new UserService();
     const response = await userService.getUser();
     setUser(response);
-  };
+  }, [setUser]);
 
   const getAgeUser = () => {
     const birthDate = new Date(user.birthDay);

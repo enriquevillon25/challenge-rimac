@@ -1,4 +1,3 @@
-import React from "react";
 import "./ChipBase.scss";
 interface ChipBaseInterface {
   children: JSX.Element;

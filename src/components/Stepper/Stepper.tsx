@@ -1,4 +1,3 @@
-import React from "react";
 import "./Stepper.styles.scss";
 import { Typography } from "../Typography/Typography";
 import { IconButton } from "../IconButton/IconButton";
@@ -29,7 +28,7 @@ export const Stepper = ({
     <>
       {isMobile ? (
         <div className="stepper-mobile">
-          <div className="stepper-mobile__info">
+          <div className="stepper-mobile__info" onClick={onClick}>
             <img src={LeftArrowCircleMobile} alt="left-arrow-mobile" />
             <Typography
               weight="black"
@@ -41,10 +40,10 @@ export const Stepper = ({
               {`Paso ${activeStep} de ${steppers.length}`}
             </Typography>
           </div>
-          <div className="progress-bar">
-            <div className="progress-bar__container">
+          <div className="stepper-mobile__progress-bar">
+            <div className="stepper-mobile__progress-bar-container">
               <div
-                className="progress-bar__fill"
+                className="stepper-mobile__progress-bar-fill"
                 style={{ width: `${100 / (steppers.length / activeStep)}%` }}
               ></div>
             </div>

@@ -8,9 +8,8 @@ import { PlanInterface } from "../../interfaces/Plan";
 import { UserContext } from "../../context/UserContext";
 import "./QuotationPage.styles.scss";
 import { BaseCard } from "../../components/BaseCard/BaseCard";
-import LeftArrowCircle from "../../assets/icons/arrow-left-circle.svg";
-import { IconButton } from "../../components/IconButton/IconButton";
 import { useMobile } from "../../hooks/useMobile";
+import { useNavigate } from "react-router-dom";
 
 export const QuotationPage = () => {
   const steppers: StepInterface[] = [
@@ -31,6 +30,7 @@ export const QuotationPage = () => {
       description:
         "Cotiza tu seguro de salud y agrega familiares si así lo deseas.",
       type: "me",
+      active: false,
     },
     {
       id: 2,
@@ -38,6 +38,7 @@ export const QuotationPage = () => {
       description:
         "Realiza una cotización para uno de tus familiares o cualquier persona.",
       type: "tercer",
+      active: false,
     },
   ];
 
@@ -48,29 +49,33 @@ export const QuotationPage = () => {
   const [activeCoverage, setActiveCoverage] = useState<any>({});
   const { isMobile } = useMobile();
 
+  const navigate = useNavigate();
   useEffect(() => {
     getAllPlans();
-  }, []);
+  }, [getAllPlans]);
 
   return (
     <div className="quotation-page">
       <Stepper
         activeStep={activeStep}
         steppers={steppers}
-        onClick={() => setActiveStep(activeStep - 1)}
+        onClick={() => {
+          if (activeStep === 1) {
+            navigate("/");
+          }
+          setActiveStep(activeStep - 1);
+        }}
         isMobile={isMobile}
       >
         <div className="quotation-page__plansCove">
           <div className="quotation-page__plansCove-title">
             <Typography
-              fontFamily="lato"
               weight="bold"
-              size={32}
+              size={isMobile ? 28 : 32}
               color="primary-dark-blue"
-              letterSpacing={-6}
-              lineHeight={48}
-              align="center"
-              key="title"
+              letterSpacing={isMobile ? -2 : -6}
+              lineHeight={isMobile ? 36 : 48}
+              align={isMobile ? "start" : "center"}
             >
               {`${user && `${user.name} ¿Para quién deseas cotizar?`}`}
             </Typography>
@@ -81,36 +86,35 @@ export const QuotationPage = () => {
               color="primary-dark-blue"
               letterSpacing={1}
               lineHeight={28}
-              align="center"
-              key="subtitle"
+              align={isMobile ? "start" : "center"}
             >
               Selecciona la opción que se ajuste más a tus necesidades.
             </Typography>
           </div>
           <div className="quotation-page__plansCove-coverage">
             {coveragesPlans.map((coveragePlan: any) => (
-              <>
-                <SelectCard
-                  description={coveragePlan.description}
-                  title={coveragePlan.title}
-                  key={coveragePlan.id}
-                  onChange={() => {
-                    setActiveCoverage((prevActive: any) =>
-                      prevActive.id !== coveragePlan.id ? coveragePlan : null
-                    );
-                  }}
-                  checked={coveragePlan.id === activeCoverage.id}
-                />
-              </>
+              <SelectCard
+                description={coveragePlan.description}
+                title={coveragePlan.title}
+                key={coveragePlan.id}
+                onChange={() => {
+                  if (coveragePlan.id === activeCoverage.id) {
+                    setActiveCoverage({});
+                  } else {
+                    setActiveCoverage(coveragePlan);
+                  }
+                }}
+                checked={coveragePlan.id === activeCoverage.id}
+              />
             ))}
           </div>
           {activeCoverage.id && (
             <div className="quotation-page__plansCove-plans">
               {plans
                 .filter((plan: PlanInterface) => plan.age > 45)
-                .map((plan: PlanInterface, index: number) => (
+                .map((plan: PlanInterface) => (
                   <ActionCard
-                    key={index}
+                    key={plan.id}
                     descriptions={plan.description}
                     price={
                       activeCoverage.type === "me"
@@ -118,10 +122,16 @@ export const QuotationPage = () => {
                         : plan.price * 0.95
                     }
                     onClick={() => {
-                      setCurrentPlan(plan);
+                      setCurrentPlan({
+                        ...plan,
+                        price:
+                          activeCoverage.type === "me"
+                            ? plan.price
+                            : plan.price * 0.95,
+                      });
                       setActiveStep(activeStep + 1);
                     }}
-                  ></ActionCard>
+                  />
                 ))}
             </div>
           )}
@@ -130,11 +140,11 @@ export const QuotationPage = () => {
         <div className="quotation-page__summary">
           <Typography
             weight="bold"
-            size={40}
-            lineHeight={48}
-            letterSpacing={-6}
+            size={isMobile ? 32 : 40}
+            lineHeight={isMobile ? 36 : 48}
+            letterSpacing={isMobile ? -2 : -6}
             color="primary-dark-blue"
-            align="start"
+            align={isMobile ? "center" : "start"}
           >
             Resumen del seguro
           </Typography>

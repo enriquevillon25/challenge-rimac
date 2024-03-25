@@ -16,13 +16,21 @@ export const useForm = () => {
     setComunicationPolitic(e.target.checked);
   };
   const handleNumDoc = (e: any) => {
-    setNumDoc(e.target.value);
+    if (/^\d*$/.test(e.target.value)) {
+      setNumDoc(e.target.value);
+    } else {
+      e.preventDefault();
+    }
   };
   const handleTypeDoc = (e: any) => {
     setTypeDoc(e.target.value);
   };
   const handleSetPhone = (e: any) => {
-    setPhone(e.target.value);
+    if (/^\d*$/.test(e.target.value)) {
+      setPhone(e.target.value);
+    } else {
+      e.preventDefault();
+    }
   };
 
   const validationForm =

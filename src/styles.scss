@@ -1,0 +1,5 @@
+@use "./mixins" as *;
+
+.flex-col-start {
+  @include flex-col-start;
+}

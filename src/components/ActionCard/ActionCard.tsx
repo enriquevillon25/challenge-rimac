@@ -4,7 +4,16 @@ import "./ActionCard.styles.scss";
 import homePlan from "../../assets/plan-home.svg";
 import { ButtonBase } from "../Button/Button";
 
-export const ActionCard = ({ descriptions, price, onClick }: any) => {
+interface ActionCardInterface {
+  descriptions: string[];
+  price: number;
+  onClick: () => void;
+}
+export const ActionCard = ({
+  descriptions,
+  price,
+  onClick,
+}: ActionCardInterface) => {
   return (
     <div className="action-card">
       <div className="action-card__header">
@@ -19,7 +28,7 @@ export const ActionCard = ({ descriptions, price, onClick }: any) => {
           >
             Plan en Casa
           </Typography>
-          <img src={homePlan} />
+          <img src={homePlan} alt="home-img" />
         </div>
         <div className="action-card__header-price">
           <Typography
@@ -49,7 +58,7 @@ export const ActionCard = ({ descriptions, price, onClick }: any) => {
           <ul>
             {descriptions &&
               descriptions.map((description: any, index: number) => (
-                <li>
+                <li key={index}>
                   <Typography
                     size={16}
                     lineHeight={28}
@@ -57,7 +66,6 @@ export const ActionCard = ({ descriptions, price, onClick }: any) => {
                     weight="normal"
                     letterSpacing={1}
                     fontFamily="lato"
-                    key={index}
                   >
                     {description}
                   </Typography>

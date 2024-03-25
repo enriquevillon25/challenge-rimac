@@ -1,11 +1,9 @@
 import "./Typography.styles.scss";
-// 12 14 16 18 32 40
-
 type familyFont = "lato" | "space";
 type size = 10 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 40;
 type weight = "normal" | "semi-bold" | "bold" | "black";
 type letterSpacing = -6 | -4 | -2 | -1 | 1 | 2 | 4 | 6 | 8;
-type lineHeight = 16 | 20 | 24 | 28 | 32 | 40 | 48;
+type lineHeight = 16 | 20 | 24 | 28 | 32 | 36 | 40 | 48;
 type color =
   | "white"
   | "primary-black"
@@ -14,7 +12,7 @@ type color =
   | "violet-secondary";
 type align = "start" | "end" | "center";
 
-interface Typography {
+interface TypographyInterface {
   children: string | JSX.Element;
   fontFamily?: familyFont;
   size?: size;
@@ -36,7 +34,7 @@ export const Typography = ({
   color = "primary-black",
   align = "start",
   underlined = false,
-}: Typography) => {
+}: TypographyInterface) => {
   return (
     <span
       className={`typography 

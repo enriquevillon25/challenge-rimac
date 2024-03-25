@@ -6,11 +6,10 @@ import "./Footer.styles.scss";
 import { useMobile } from "../../hooks/useMobile";
 export const Footer = () => {
   const { isMobile } = useMobile();
-  console.log("is", isMobile);
   return (
     <footer className="footer__container">
       <div>
-        <img src={isMobile ? logoMobile : logo} />
+        <img src={isMobile ? logoMobile : logo} alt="logo" />
       </div>
       <div className="footer__container-info">
         <Typography

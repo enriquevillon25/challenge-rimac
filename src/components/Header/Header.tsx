@@ -3,10 +3,11 @@ import logo from "../../assets/rimac-logo-header.svg";
 import phone from "../../assets/icons/phone.svg";
 import { Typography } from "../Typography/Typography";
 import "./Header.styles.scss";
+
 export const Header = () => {
   return (
     <div className="header">
-      <img src={logo} />
+      <img src={logo} alt="logo" />
       <div className="header__info">
         <div className="header__info-title">
           <Typography
@@ -21,7 +22,7 @@ export const Header = () => {
           </Typography>
         </div>
         <div className="header__info-contact">
-          <img src={phone} />
+          <img src={phone} alt="phone"/>
           <Typography
             fontFamily="space"
             weight="bold"

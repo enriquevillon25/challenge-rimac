@@ -9,7 +9,7 @@ export class PlanService implements IPlan {
       const response = await axiosInstance.get<PlanInterface[]>(this.path);
       return response.data;
     } catch (e) {
-      throw new Error("Error de usuario");
+      throw new Error("Error en los planes");
     }
   }
 }

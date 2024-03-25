@@ -9,6 +9,7 @@ import { PrimarySelect } from "../../components/PrimarySelect/PrimarySelect";
 import { useUser } from "../../hooks/useUser";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
+import { useMobile } from "../../hooks/useMobile";
 
 export const Home = () => {
   const optionTypeDoc = [
@@ -18,17 +19,17 @@ export const Home = () => {
   const navigate = useNavigate();
 
   const { user, setUser, getUser } = useUser();
-
+  const { isMobile } = useMobile();
   const {
     comunicationPolicit,
     handleComunicationPolitic,
     handlePrivatePolitic,
     handleTypeDoc,
+    handleSetPhone,
+    handleNumDoc,
     privatePolitic,
     phone,
     numDoc,
-    setNumDoc,
-    setPhone,
     validationForm,
     typeDoc,
     formToUser,
@@ -36,7 +37,7 @@ export const Home = () => {
 
   useEffect(() => {
     getUser();
-  }, []);
+  }, [getUser]);
 
   return (
     <div className="home">
@@ -47,7 +48,7 @@ export const Home = () => {
         <ChipBase>
           <Typography
             fontFamily="space"
-            size={14}
+            size={isMobile ? 12 : 14}
             lineHeight={16}
             letterSpacing={4}
             weight="bold"
@@ -56,7 +57,12 @@ export const Home = () => {
             Seguro Salud Flexible
           </Typography>
         </ChipBase>
-        <Typography fontFamily="space" size={32} weight="bold" lineHeight={40}>
+        <Typography
+          fontFamily="space"
+          size={isMobile ? 28 : 32}
+          weight="bold"
+          lineHeight={isMobile ? 36 : 40}
+        >
           Creado para ti y tu familia
         </Typography>
       </div>
@@ -72,10 +78,7 @@ export const Home = () => {
           asesoría. 100% online.
         </Typography>
         <form action="" className="home__main-form">
-          <div
-            style={{ display: "grid", gridTemplateColumns: "40% 60%" }}
-            className="form__select"
-          >
+          <div className="home__main-form-select">
             <PrimarySelect
               options={optionTypeDoc}
               value={typeDoc}
@@ -83,23 +86,19 @@ export const Home = () => {
             />
             <InputBase
               value={numDoc !== 0 ? numDoc : ""}
-              onChange={(e: any) => {
-                setNumDoc(e.target.value);
-              }}
+              onChange={handleNumDoc}
               type="right"
               placeHolder="Nro. de documento"
             />
           </div>
           <InputBase
             value={phone !== 0 ? phone : ""}
-            onChange={(e: any) => {
-              setPhone(e.target.value);
-            }}
+            onChange={handleSetPhone}
             type="full"
             placeHolder="Celular"
           />
-          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+          <div className="home__main-form-politics">
+            <div className="home__main-form-politics-check">
               <input
                 type="checkbox"
                 checked={privatePolitic}
@@ -109,14 +108,14 @@ export const Home = () => {
               <Typography
                 fontFamily="space"
                 weight="normal"
-                size={12}
+                size={isMobile ? 14 : 12}
                 lineHeight={20}
                 letterSpacing={1}
               >
                 Acepto la Política de Privacidad
               </Typography>
             </div>
-            <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+            <div className="home__main-form-politics-check">
               <input
                 type="checkbox"
                 checked={comunicationPolicit}
@@ -126,7 +125,7 @@ export const Home = () => {
               <Typography
                 fontFamily="space"
                 weight="normal"
-                size={12}
+                size={isMobile ? 14 : 12}
                 lineHeight={20}
                 letterSpacing={1}
               >
@@ -136,7 +135,7 @@ export const Home = () => {
             <Typography
               fontFamily="space"
               weight="semi-bold"
-              size={12}
+              size={isMobile ? 14 : 12}
               lineHeight={20}
               letterSpacing={1}
               underlined={true}

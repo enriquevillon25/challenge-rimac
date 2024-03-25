@@ -1,8 +1,8 @@
 import React from "react";
 import "./InputBase.styles.scss";
 
-interface InputBase<T> {
-  value: T;
+interface InputBaseInterface {
+  value: any;
   placeHolder: string;
   onChange: (e: any) => void;
   type: string;
@@ -13,7 +13,7 @@ export const InputBase = ({
   placeHolder,
   onChange,
   type,
-}: InputBase<any>) => {
+}: InputBaseInterface) => {
   return (
     <input
       className={`input-base input-base--${type}`}

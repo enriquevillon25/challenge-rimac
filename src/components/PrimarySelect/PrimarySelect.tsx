@@ -1,13 +1,17 @@
 import React from "react";
 import "./PrimarySelect.styles.scss";
 
-interface PrimarySelect {
+interface PrimarySelectInterface {
   options: any[];
   value: any;
   onChange: (e: any) => void;
 }
 
-export const PrimarySelect = ({ options, value, onChange }: PrimarySelect) => {
+export const PrimarySelect = ({
+  options,
+  value,
+  onChange,
+}: PrimarySelectInterface) => {
   return (
     <select className={`primary-select`} value={value} onChange={onChange}>
       {options.map((option: any) => (
