@@ -18,8 +18,6 @@ export const useForm = () => {
   const handleNumDoc = (e: any) => {
     if (/^\d*$/.test(e.target.value)) {
       setNumDoc(e.target.value);
-    } else {
-      e.preventDefault();
     }
   };
   const handleTypeDoc = (e: any) => {
@@ -28,8 +26,6 @@ export const useForm = () => {
   const handleSetPhone = (e: any) => {
     if (/^\d*$/.test(e.target.value)) {
       setPhone(e.target.value);
-    } else {
-      e.preventDefault();
     }
   };
 

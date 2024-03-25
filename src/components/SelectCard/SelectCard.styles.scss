@@ -29,5 +29,11 @@
     &__header {
       display: flex;
     }
+    &__body {
+      &-title {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
   }
 }

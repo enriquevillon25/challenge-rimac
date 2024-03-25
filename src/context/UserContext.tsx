@@ -1,13 +1,12 @@
 import { createContext, useState } from "react";
-import { useUser } from "../hooks/useUser";
 import { UserInterface } from "../interfaces/User";
 
-interface UserContext {
+interface UserContextInterface {
   user: UserInterface | undefined;
   // ageUser: number;
 }
 
-const defaultValue: UserContext = { user: undefined };
+const defaultValue: UserContextInterface = { user: undefined };
 export const UserContext = createContext<any>(defaultValue);
 
 export const UserProvider = ({ children }: any) => {

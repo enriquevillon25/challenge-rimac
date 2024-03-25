@@ -3,7 +3,7 @@ import "./Home.styles.scss";
 import { Typography } from "../../components/Typography/Typography";
 import { ChipBase } from "../../components/ChipBase/ChipBase";
 import { InputBase } from "../../components/InputBase/InputBase";
-import { ButtonBase } from "../../components/Button/Button";
+import { Button } from "../../components/Button/Button";
 import ImageHome from "../../assets/home-image.svg";
 import { PrimarySelect } from "../../components/PrimarySelect/PrimarySelect";
 import { useUser } from "../../hooks/useUser";
@@ -145,7 +145,7 @@ export const Home = () => {
           </div>
         </form>
         <div>
-          <ButtonBase
+          <Button
             type="secondary"
             onClick={() => {
               setUser(formToUser(user));
@@ -163,7 +163,7 @@ export const Home = () => {
             >
               Cotiza aquí
             </Typography>
-          </ButtonBase>
+          </Button>
         </div>
       </div>
     </div>

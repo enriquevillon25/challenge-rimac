@@ -74,8 +74,12 @@
       width: auto;
       border-top: 1px solid #ccd1ee;
       padding: 16px 0;
+      gap: 32px;
       &-form {
         margin-bottom: 2%;
+        &-politics{
+          gap: 28px;
+        }
       }
     }
   }

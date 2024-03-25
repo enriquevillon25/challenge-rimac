@@ -2,7 +2,7 @@ import React from "react";
 import { Typography } from "../Typography/Typography";
 import "./ActionCard.styles.scss";
 import homePlan from "../../assets/plan-home.svg";
-import { ButtonBase } from "../Button/Button";
+import { Button } from "../Button/Button";
 
 interface ActionCardInterface {
   descriptions: string[];
@@ -74,7 +74,7 @@ export const ActionCard = ({
           </ul>
         </div>
         <div className="action-card__body-actions">
-          <ButtonBase type="primary" onClick={onClick}>
+          <Button type="primary" onClick={onClick}>
             <Typography
               color="white"
               weight="bold"
@@ -84,7 +84,7 @@ export const ActionCard = ({
             >
               Seleccionar Plan
             </Typography>
-          </ButtonBase>
+          </Button>
         </div>
       </div>
       {/* <div className="action-card__actions"></div> */}
