@@ -10,6 +10,7 @@ import "./QuotationPage.styles.scss";
 import { BaseCard } from "../../components/BaseCard/BaseCard";
 import { useMobile } from "../../hooks/useMobile";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../../hooks/useUser";
 
 export const QuotationPage = () => {
   const steppers: StepInterface[] = [
@@ -43,6 +44,7 @@ export const QuotationPage = () => {
   ];
 
   const { plans, getAllPlans } = useQuotation();
+  const { getAgeUser } = useUser();
   const { user } = useContext(UserContext);
   const [activeStep, setActiveStep] = useState(1);
   const [currentPlan, setCurrentPlan] = useState<PlanInterface>();
@@ -111,7 +113,7 @@ export const QuotationPage = () => {
           {activeCoverage.id && (
             <div className="quotation-page__plansCove-plans">
               {plans
-                .filter((plan: PlanInterface) => plan.age > 45)
+                .filter((plan: PlanInterface) => plan.age > getAgeUser())
                 .map((plan: PlanInterface) => (
                   <ActionCard
                     key={plan.id}
